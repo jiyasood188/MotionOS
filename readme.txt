@@ -25,4 +25,3 @@ centers where physical contact with devices is not practical.
 **AI Integration & Skill Development**
 Built to apply and deepen practical knowledge of computer
 vision and AI integration — moving beyond academic learning
-into real, working systems.
