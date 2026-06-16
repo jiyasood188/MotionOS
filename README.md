@@ -12,5 +12,5 @@ MotionOS is a hands-free PC control system that enables users to control their c
  contact with devices is not always practical or permitted. MotionOS enables doctors, surgeons, and medical staff to interact
  with screens without touching them.
 
- -**AI Skill Development** — Built to apply, showcase, and continuously enhance practical knowledge of computer vision and AI
+ - **AI Skill Development** — Built to apply, showcase, and continuously enhance practical knowledge of computer vision and AI
  integration, bridging the gap between academic learning and real-world working systems.
