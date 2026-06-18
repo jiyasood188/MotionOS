@@ -1,12 +1,14 @@
-camera_index=0
-detection_confidence=0.8
-tracking_confidence=0.7
-smoothing=5
-min_handsize=0.25
-scroll_frames=4
-frame_reduction=0.6
-click_cooldown=0.4
-pinch_threshold=0.045
-scroll_speed=80
-volume_step=2
-volume_frames=6
+CAMERA_INDEX = 0
+DETECTION_CONFIDENCE=0.7
+TRACKING_CONFIDENCE = 0.6
+SMOOTHING=4
+MIN_HAND_SIZE=0.16
+SCROLL_FRAMES=4
+FRAME_REDUCTION=0.8    
+CLICK_COOLDOWN=2
+PINCH_THRESHOLD=0.45                                                                                  
+SCROLL_SPEED=5
+VOLUME_STEP=2
+VOLUME_FRAMES=6                                                                                 camera_index=0
+
+
