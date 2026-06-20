@@ -52,7 +52,7 @@ def classify(lm_norm, prev_index_y=None):
             return GESTURE_VOLUME_UP, index_tip_norm
 
     if not index_up and not middle_up and not ring_up and not pinky_up:
-        if thumb_y > wrist_y + 0.08:
+        if thumb_y > wrist_y + 0.05:
             return GESTURE_VOLUME_DOWN, index_tip_norm
 
     if not index_up and not middle_up and not ring_up and not pinky_up:
@@ -62,7 +62,8 @@ def classify(lm_norm, prev_index_y=None):
         return GESTURE_SCROLL_UP, index_tip_norm
 
     if index_up and middle_up and not ring_up and not pinky_up and not thumb_out:
-        return GESTURE_DISABLE, index_tip_norm
+        if thumb_y > wrist_y + 0.02:
+            return GESTURE_DISABLE, index_tip_norm
 
     if index_up and not middle_up and not ring_up and not pinky_up and thumb_out:
         return GESTURE_SCROLL_DOWN, index_tip_norm
@@ -70,12 +71,11 @@ def classify(lm_norm, prev_index_y=None):
     if index_up and not middle_up and not ring_up and not pinky_up and not thumb_out:
         return GESTURE_POINT, index_tip_norm
 
-    if index_up and middle_up and ring_up and pinky_up and not thumb_out:
-        if thumb_y > wrist_y + 0.05:
-            return GESTURE_DOUBLE_CLICK, index_tip_norm
-
     if index_up and middle_up and ring_up and pinky_up and thumb_out:
         return GESTURE_PAUSE, index_tip_norm
+
+    if index_up and middle_up and ring_up and pinky_up and not thumb_out:
+        return GESTURE_DOUBLE_CLICK, index_tip_norm
 
     if index_up and middle_up and ring_up and not pinky_up and not thumb_out:
         return GESTURE_CLICK, index_tip_norm
