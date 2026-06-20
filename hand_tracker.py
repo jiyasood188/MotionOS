@@ -1,3 +1,6 @@
+
+import os
+os.environ["MEDIAPIPE_DISABLE_GPU"] = "1"
 import cv2
 
 import mediapipe as mp
@@ -31,10 +34,8 @@ class HandTracker:
     PINKY_PIP  = 18
 
     def __init__(self):
-         
         base_options = mp_python.BaseOptions(model_asset_path=MODEL_PATH)
 
-        
         options = vision.HandLandmarkerOptions(
             base_options=base_options,
             num_hands=1,
@@ -42,10 +43,8 @@ class HandTracker:
             min_tracking_confidence=config.TRACKING_CONFIDENCE,
         )
 
-        
         self._detector = vision.HandLandmarker.create_from_options(options)
 
-        
         self._draw = mp.solutions.drawing_utils
         self._draw_styles = mp.solutions.drawing_styles
         self._mp_hands = mp.solutions.hands
@@ -53,10 +52,8 @@ class HandTracker:
     def process(self, frame):
         h, w = frame.shape[:2]
 
-        
         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-        
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
 
         result = self._detector.detect(mp_image)
@@ -66,13 +63,10 @@ class HandTracker:
         if not result.hand_landmarks:
             return None, None, annotated
 
-         
         hand = result.hand_landmarks[0]
 
-      
         landmarks_norm = [(lm.x, lm.y, lm.z) for lm in hand]
 
-       
         landmarks_px = [(int(lm.x * w), int(lm.y * h)) for lm in hand]
 
         for connection in self._mp_hands.HAND_CONNECTIONS:
