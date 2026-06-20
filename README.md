@@ -1,4 +1,5 @@
 **overview**
+LONG TERM PROJECT(still in progress)
 MotionOS is a hands-free PC control system that enables users to control their computer entirely through natural body movements
 — hand gestures and eye gaze — using only a standard webcam. No special hardware, no controllers, no physical contact required.
 
