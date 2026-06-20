@@ -1,8 +1,8 @@
 
-import cv2
+import cv2 
 import config
 from hand_tracker import HandTracker
-from guestre_classifier import classify
+from gesture_classifier import classify
 from action_disptacher import dispatch
 
 
