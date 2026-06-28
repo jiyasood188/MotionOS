@@ -1,5 +1,5 @@
 
-import cv2 
+import  cv2 
 import config
 from hand_tracker import HandTracker
 from gesture_classifier import classify
