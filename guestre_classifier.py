@@ -1,4 +1,4 @@
-import math
+ import math
 from hand_tracker import HandTracker as HT
 import config
 
