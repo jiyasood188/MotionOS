@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MotionOS — Control your PC with movement, not touch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-fixed"></div>
+<div class="bg-grid"></div>
+
+<header>
+  <div class="wrap">
+    <div class="nav-inner glass" style="border-radius:16px;">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        MotionOS
+      </div>
+      <div class="nav-links">
+        <ul>
+          <li><a href="#gestures">Gestures</a></li>
+          <li><a href="#purpose">Purpose</a></li>
+          <li><a href="#how">How it works</a></li>
+        </ul>
+        <div class="status-pill"><span class="status-dot"></span> In development</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div>
+      <div class="eyebrow">◆ NO CONTROLLERS · NO CONTACT · JUST A WEBCAM</div>
+      <h1>Move your hand.<br>Your PC <span class="accent">follows.</span></h1>
+      <p class="lede">MotionOS turns any standard webcam into a full input device — hand gestures for cursor, clicks and scroll, eye gaze for where to look. Nothing to hold, nothing to touch.</p>
+      <div class="cta-row">
+        <a href="#gestures" class="btn btn-primary">See the gesture map ↓</a>
+        <a href="#purpose" class="btn btn-ghost">Why it exists</a>
+      </div>
+      <div class="hero-meta">
+        <div><span>10</span>gesture states</div>
+        <div><span>1</span>webcam required</div>
+        <div><span>0</span>hardware to buy</div>
+      </div>
+    </div>
+
+    <div class="tracker-card glass">
+      <div class="tracker-topbar">
+        <span class="live">LIVE TRACKING</span>
+        <span>cam0 · 30fps</span>
+      </div>
+      <span class="gesture-tag" id="gestureTag">index only · cursor</span>
+      <canvas id="handCanvas"></canvas>
+      <div class="coord-readout">
+        <span>x: <b id="coordX">512</b></span>
+        <span>y: <b id="coordY">304</b></span>
+        <span>conf: <b id="coordConf">0.97</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GESTURE TABLE -->
+  <section id="gestures">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">GESTURE REFERENCE</div>
+        <h2>One hand. Ten commands.</h2>
+        <p>Every action maps to a finger combination and a thumb position — designed to be distinct enough for reliable computer-vision detection, and simple enough to hold without fatigue.</p>
+      </div>
+
+      <div class="table-card glass reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Fingers extended</th>
+              <th>Thumb</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="gestureTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURPOSE -->
+  <section id="purpose">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">PURPOSE</div>
+        <h2>Built for the moments touch isn't an option</h2>
+        <p>MotionOS started as one engineer's attempt to apply computer vision to a real problem — and grew into a system with a few very different use cases.</p>
+      </div>
+
+      <div class="purpose-grid">
+        <div class="purpose-card glass reveal">
+          <div class="purpose-icon">♿</div>
+          <h3>Accessibility</h3>
+          <p>For people with motor disabilities, paralysis, or conditions like ALS, MotionOS offers a way to operate a computer using only natural movement — no grip, no pressure, no precision required from a joystick or switch.</p>
+          <span class="tag">Independent access</span>
+        </div>
+        <div class="purpose-card glass reveal">
+          <div class="purpose-icon">✛</div>
+          <h3>Sterile environments</h3>
+          <p>In operation theatres, diagnostic labs and rehab centers, touching a keyboard or mouse isn't always allowed. MotionOS lets doctors and staff control a screen from a distance, hands free of contact and contamination.</p>
+          <span class="tag">Zero-touch clinical use</span>
+        </div>
+        <div class="purpose-card glass reveal">
+          <div class="purpose-icon">◈</div>
+          <h3>AI &amp; CV skill-building</h3>
+          <p>Every part of MotionOS — landmark detection, gesture classification, gaze estimation — is a working application of computer vision, built to bridge classroom knowledge and a real, running system.</p>
+          <span class="tag">Applied learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">PIPELINE</div>
+        <h2>From webcam frame to OS action</h2>
+        <p>A single video stream is enough — everything else happens in software, frame by frame.</p>
+      </div>
+
+      <div class="pipeline-wrap reveal">
+        <div class="pipe-step glass">
+          <span class="pipe-num">01</span>
+          <h4>Webcam input</h4>
+          <p>Standard RGB frames captured continuously, no depth sensor or IR camera needed.</p>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step glass">
+          <span class="pipe-num">02</span>
+          <h4>Landmark detection</h4>
+          <p>Hand and eye keypoints located in each frame using a computer-vision model.</p>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step glass">
+          <span class="pipe-num">03</span>
+          <h4>Gesture classification</h4>
+          <p>Finger state and thumb position matched against the gesture reference.</p>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step glass">
+          <span class="pipe-num">04</span>
+          <h4>OS action</h4>
+          <p>The matched gesture is translated into a real cursor, click, scroll or media command.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>MOTIONOS — HANDS-FREE PC CONTROL · PROJECT STATUS: IN PROGRESS</p>
+    <div class="footer-links">
+      <a href="#gestures">Gestures</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#how">How it works</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
